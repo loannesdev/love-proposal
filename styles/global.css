@@ -1,0 +1,68 @@
+@import url("./reset.css");
+
+:root {}
+
+body {
+  --initial-radial-gradient: radial-gradient(circle at 50% 50%, transparent, transparent, pink);
+
+  background: var(--initial-radial-gradient);
+  display: grid;
+  place-items: center;
+  height: 100dvh;
+  backdrop-filter: blur(24px);
+}
+
+main {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  & .title {
+    font-size: 2.75rem;
+    font-weight: 900;
+  }
+
+  & .video-gif {
+    border-radius: 6px;
+  }
+
+  & .answer-options {
+    --bg-color: #f1f1f1;
+    --padding-inline: 16px;
+    --padding-block: 8px;
+    --multiplier: 1;
+
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+
+    &>button {
+      background-color: var(--bg-color);
+      padding: var(--padding-block) var(--padding-inline);
+      color: white;
+      font-weight: bold;
+      border-radius: 2px;
+      transition: 0.2s ease-in-out;
+      transition-property: filter;
+      height: fit-content;
+
+      &:active {
+        filter: brightness(1.2);
+      }
+    }
+
+    & .yes {
+      --bg-color: #4caf50;
+      padding: calc(var(--padding-block) * var(--multiplier)) calc(var(--padding-inline) * var(--multiplier));
+      font-size: calc(1rem * var(--multiplier));
+    }
+
+    & .no {
+      --bg-color: #f44336;
+    }
+  }
+}
