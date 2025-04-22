@@ -1,9 +1,16 @@
 @import url("./reset.css");
+@import url("./fonts.css");
 
-:root {}
+:root {
+  --primary-font: 'Grandstander', sans-serif;
+}
+
+* {
+  font-family: var(--primary-font);
+}
 
 body {
-  --initial-radial-gradient: radial-gradient(circle at 50% 50%, transparent, transparent, pink);
+  --initial-radial-gradient: radial-gradient(circle, transparent 60%, pink);
 
   background: var(--initial-radial-gradient);
   display: grid;
@@ -20,8 +27,12 @@ main {
   gap: 1rem;
 
   & .title {
-    font-size: 2.75rem;
+    font-size: 3rem;
     font-weight: 900;
+    text-box: cap uppercase;
+    -webkit-text-stroke: 2px color-mix(in srgb, black 25%, pink);
+    text-shadow: 0 0 6px pink;
+    color: color-mix(in srgb, transparent 95%, pink);
   }
 
   & .video-gif {
@@ -44,14 +55,16 @@ main {
       background-color: var(--bg-color);
       padding: var(--padding-block) var(--padding-inline);
       color: white;
-      font-weight: bold;
       border-radius: 2px;
       transition: 0.2s ease-in-out;
       transition-property: filter;
       height: fit-content;
+      letter-spacing: 2px;
+      text-box: cap uppercase;
+      user-select: none;
 
-      &:active {
-        filter: brightness(1.2);
+      & :active {
+        filter: brightness(1.5);
       }
     }
 
